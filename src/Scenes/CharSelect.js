@@ -6,18 +6,19 @@ class CharSelect extends Phaser.Scene {
 
     preload() {
         this.load.setPath("./assets/");
-        this.load.image("rook_button", "chess_rook.png");
-        this.load.image("bishop_button", "chess_bishop.png");
+        this.load.image("potato_button", "Potato Mid Walk2.png");
+        this.load.image("tomato_button", "frontfacesize2.png");
     }
 
     create() {
         // Tomato Button
-        this.my.sprite.tomato_button = this.add.sprite(300, 300, "bishop_button").setInteractive();
-        this.add.text(266, 350, 'Tomato', { font: 'bold 20px Times', color: "red" });
+        this.my.sprite.tomato_button = this.add.sprite(300, 300, "tomato_button").setInteractive();
+        this.add.text(270, 420, 'Tomato', { font: 'bold 20px Times', color: "red" });
 
         // Potato Button
-        this.my.sprite.potato_button = this.add.sprite(700, 300, "rook_button").setInteractive();
-        this.add.text(672, 350, 'Potato', { font: 'bold 20px Times', color: "tan" });
+        this.my.sprite.potato_button = this.add.sprite(700, 300, "potato_button").setInteractive();
+        this.add.text(672, 420, 'Potato', { font: 'bold 20px Times', color: "tan" });
+
 
         this.my.sprite.potato_button.on('pointerdown', () => {
             console.log("START POTATO GAME");
