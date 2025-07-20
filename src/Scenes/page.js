@@ -81,13 +81,13 @@ class testGame extends Phaser.Scene {
             this.my.sprite.dog.setVelocityX(-150);
         }
         else if(this.p1down.isDown && this.p1right.isDown){
-            this.my.sprite.dog.setVelocityX(150);
+            this.my.sprite.dog.setVelocityX(160);
         }
         else if(this.p1right.isDown){
-            this.my.sprite.dog.setVelocityX(230);
+            this.my.sprite.dog.setVelocityX(240);
         }
         else if(this.p1left.isDown){ 
-            this.my.sprite.dog.setVelocityX(-230);
+            this.my.sprite.dog.setVelocityX(-240);
         } else {
             this.my.sprite.dog.setVelocityX(0);
         }
