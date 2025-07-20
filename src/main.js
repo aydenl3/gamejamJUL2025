@@ -8,6 +8,16 @@ let config = {
         pixelArt: true  // prevent pixel art from getting blurred when scaled
     },
     fps: { forceSetTimeOut: true, target: 60 },   // ensure consistent timing across machines
+    physics: {
+        default: 'arcade',
+        arcade: {
+            debug: false,
+            gravity: {
+                x: 0,
+                y: 0
+            }
+        }
+    },
     width: 1000,
     height: 600,
     scene: [Potato, Tomato]

@@ -1,6 +1,6 @@
 class Tomato extends Phaser.Scene {
     constructor() {
-        super("testGame");
+        super("Tomato");
         this.my = {sprite: {}};
     }
 
