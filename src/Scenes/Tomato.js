@@ -1,4 +1,4 @@
-class testGame extends Phaser.Scene {
+class Tomato extends Phaser.Scene {
     constructor() {
         super("testGame");
         this.my = {sprite: {}};
@@ -10,7 +10,7 @@ class testGame extends Phaser.Scene {
     }
 
     create() {
-        this.physics.world.setBounds(0, 0, 800, 600, this.gameScreenWidth, this.gameScreenHeight);
+        this.physics.world.setBounds(0, 0, 1000, 1000, this.gameScreenWidth, this.gameScreenHeight);
     //Backdrop
         this.my.sprite.blue = this.physics.add.sprite(400,320,"blue");
         this.my.sprite.blue.setGravityY(-300);
@@ -46,7 +46,7 @@ class testGame extends Phaser.Scene {
     }
 
     update() {
-        this.checkInput();
+        this.checkInput(); 
     }
 
     checkInput(){
