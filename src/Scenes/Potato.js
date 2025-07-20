@@ -30,20 +30,26 @@ class Potato extends Phaser.Scene {
         if(this.right.isDown && this.left.isDown){
             this.my.sprite.potato.setVelocityX(0);
         }
+        else if(this.up.isDown && this.down.isDown){
+            this.my.sprite.potato.setVelocityY(0);
+        }
         else if(this.right.isDown){
             this.my.sprite.potato.setVelocityX(200);
         }
         else if(this.left.isDown){ 
             this.my.sprite.potato.setVelocityX(-200);
         }
-        else if(this.up.isDown){
+        else {
+            this.my.sprite.potato.setVelocityX(0);
+        }
+        if(this.up.isDown){
             this.my.sprite.potato.setVelocityY(-200);
         }
         else if(this.down.isDown){ 
             this.my.sprite.potato.setVelocityY(200);
         }
-        else if(!this.down.isDown && !this.up.isDown && !this.left.isDown && !this.right.isDown){
-            this.my.sprite.potato.setVelocityX(0);
-        } 
+        else {
+            this.my.sprite.potato.setVelocityY(0);
+        }  
     }
 }

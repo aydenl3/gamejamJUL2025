@@ -52,17 +52,16 @@ class Tomato extends Phaser.Scene {
         if(this.p1left.isDown && this.p1right.isDown){
             this.my.sprite.tomato.setVelocityX(0);
         }
-        else if(this.p1left.isDown && this.p1up.isDown) {
-            this.my.sprite.tomato.setVelocityX(-200);
-            this.my.sprite.tomato.setVelocityY(-200);
-        }
         else if(this.p1left.isDown){ 
             this.my.sprite.tomato.setVelocityX(-200);
         }
         else if(this.p1right.isDown){
             this.my.sprite.tomato.setVelocityX(200);
+        }else{
+            this.my.sprite.tomato.setVelocityX(0);
         }
-        else if (this.p1up.isDown && this.p1down.isDown){
+        
+        if (this.p1up.isDown && this.p1down.isDown){
             this.my.sprite.tomato.setVelocityY(0);
         }
         else if(this.p1up.isDown){
@@ -73,7 +72,6 @@ class Tomato extends Phaser.Scene {
         }
         else {
             this.my.sprite.tomato.setVelocityY(0);
-            this.my.sprite.tomato.setVelocityX(0);
     }
 }
   /*  brakey(key){
