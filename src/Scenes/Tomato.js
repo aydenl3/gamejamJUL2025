@@ -6,8 +6,8 @@ class Tomato extends Phaser.Scene {
 
     preload() {
         this.load.setPath("./assets/");
-        this.load.image("bishop","Adobe Express - file.png");
-        //this.load.image("bishop","chess_bishop.png");
+        this.load.image("tomato","chess_bishop.png");
+        this.load.image(" "," ");
     }
 
     create() {
@@ -19,16 +19,13 @@ class Tomato extends Phaser.Scene {
     //Platforms
       //  this.my.sprite.platform = this.physics.add.sprite(700,518,"platform");
        // this.my.sprite.platform2 = this.physics.add.sprite(700,518,"platwoform");
-    //Dog
-        this.my.sprite.bishop = this.physics.add.sprite(400,300,"bishop");
-        this.my.sprite.bishop.setScale(0.2);
-        this.my.sprite.bishop.setCollideWorldBounds(true);
+    //Tomato Character
+        this.my.sprite.tomato = this.physics.add.sprite(100,550,"tomato");
+        this.my.sprite.tomato.setCollideWorldBounds(true);
         this.p1up = this.input.keyboard.addKey("W");
         this.p1down = this.input.keyboard.addKey("S");
         this.p1left = this.input.keyboard.addKey("A");
         this.p1right = this.input.keyboard.addKey("D");
-        this.p1phase = this.input.keyboard.addKey("V");
-        this.p1reset = this.input.keyboard.addKey("R");
     //Collision Groups
   /*      this.objectGroup = this.physics.add.group();
         this.objectGroup.add(this.my.sprite.platform);
@@ -52,15 +49,31 @@ class Tomato extends Phaser.Scene {
     }
 
     checkInput(){
-        if(this.p1right.isDown){
-            this.my.sprite.bishop.setVelocityX(230);
-            //Shifting Hitbox this.my.sprite.bishop.setSize(32, 60);
+        if(this.p1left.isDown && this.p1right.isDown){
+            this.my.sprite.tomato.setVelocityX(0);
+        }
+        else if(this.p1left.isDown && this.p1up.isDown) {
+            this.my.sprite.tomato.setVelocityX(-200);
+            this.my.sprite.tomato.setVelocityY(-200);
         }
         else if(this.p1left.isDown){ 
-            this.my.sprite.bishop.setVelocityX(-230);
+            this.my.sprite.tomato.setVelocityX(-200);
+        }
+        else if(this.p1right.isDown){
+            this.my.sprite.tomato.setVelocityX(200);
+        }
+        else if (this.p1up.isDown && this.p1down.isDown){
+            this.my.sprite.tomato.setVelocityY(0);
+        }
+        else if(this.p1up.isDown){
+            this.my.sprite.tomato.setVelocityY(-200);
+        }
+        else if(this.p1down.isDown){ 
+            this.my.sprite.tomato.setVelocityY(200);
         }
         else {
-            this.my.sprite.bishop.setVelocityX(0);
+            this.my.sprite.tomato.setVelocityY(0);
+            this.my.sprite.tomato.setVelocityX(0);
     }
 }
   /*  brakey(key){

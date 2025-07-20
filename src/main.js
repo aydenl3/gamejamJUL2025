@@ -20,7 +20,7 @@ let config = {
     },
     width: 1000,
     height: 600,
-    scene: [CharSelect]
+    scene: [CharSelect, Potato, Tomato]
 }
 
 
