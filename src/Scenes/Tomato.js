@@ -6,21 +6,21 @@ class Tomato extends Phaser.Scene {
 
     preload() {
         this.load.setPath("./assets/");
-        this.load.image("Mr_Blue","Mr_Blue.png");
+        this.load.image("bishop","chess_bishop.png");
     }
 
     create() {
         this.physics.world.setBounds(0, 0, 1000, 1000, this.gameScreenWidth, this.gameScreenHeight);
     //Backdrop
-        this.my.sprite.blue = this.physics.add.sprite(400,320,"blue");
-        this.my.sprite.blue.setGravityY(-300);
-        this.my.sprite.blue.setImmovable(true);
+ //       this.my.sprite.blue = this.physics.add.sprite(400,320,"");
+   //     this.my.sprite.blue.setGravityY(-300);
+     //   this.my.sprite.blue.setImmovable(true);
     //Platforms
-        this.my.sprite.platform = this.physics.add.sprite(700,518,"platform");
-        this.my.sprite.platform2 = this.physics.add.sprite(700,518,"platwoform");
+      //  this.my.sprite.platform = this.physics.add.sprite(700,518,"platform");
+       // this.my.sprite.platform2 = this.physics.add.sprite(700,518,"platwoform");
     //Dog
-       this.my.sprite.dog = this.physics.add.sprite(55,650,"dog");
-        this.my.sprite.dog.setCollideWorldBounds(true);
+       this.my.sprite.bishop = this.physics.add.sprite(55,650,"bishop");
+        this.my.sprite.bishop.setCollideWorldBounds(true);
         this.p1up = this.input.keyboard.addKey("W");
         this.p1down = this.input.keyboard.addKey("S");
         this.p1left = this.input.keyboard.addKey("A");
@@ -28,7 +28,7 @@ class Tomato extends Phaser.Scene {
         this.p1phase = this.input.keyboard.addKey("V");
         this.p1reset = this.input.keyboard.addKey("R");
     //Collision Groups
-        this.objectGroup = this.physics.add.group();
+  /*      this.objectGroup = this.physics.add.group();
         this.objectGroup.add(this.my.sprite.platform);
         this.my.sprite.platform.setGravityY(-300);
         this.my.sprite.platform.setImmovable(true);
@@ -42,7 +42,7 @@ class Tomato extends Phaser.Scene {
         this.physics.add.collider(this.my.sprite.dog, this.my.sprite.platform2, () => {
         this.jumpBoost = true;
         });
-        this.physics.add.collider(this.my.sprite.key, this.my.sprite.chest, this.unlock, null, this)
+        this.physics.add.collider(this.my.sprite.key, this.my.sprite.chest, this.unlock, null, this) */
     }
 
     update() {
@@ -94,7 +94,7 @@ class Tomato extends Phaser.Scene {
 
         this.jumpBoost = false;
 }
-    brakey(key){
+  /*  brakey(key){
         key.setTexture("brokey");
         this.my.sprite.key.body.y += 5
         this.tweens.add({
@@ -108,6 +108,6 @@ class Tomato extends Phaser.Scene {
     }
     unlock(key, chest){
         key.destroy();
-        chest.destroy();
-    }
+        chest.destroy(); 
+    } */
 }
