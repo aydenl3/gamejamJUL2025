@@ -5,7 +5,7 @@ let config = {
     parent: 'phaser-game',
     type: Phaser.CANVAS,
     render: {
-        pixelArt: false  // prevent pixel art from getting blurred when scaled
+        pixelArt: true  // prevent pixel art from getting blurred when scaled
     },
     fps: { forceSetTimeOut: true, target: 60 },   // ensure consistent timing across machines
     physics: {
