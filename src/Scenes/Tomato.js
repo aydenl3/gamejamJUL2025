@@ -10,7 +10,7 @@ class Tomato extends Phaser.Scene {
     }
 
     create() {
-        this.physics.world.setBounds(0, 0, 1000, 1000, this.gameScreenWidth, this.gameScreenHeight);
+        this.physics.world.setBounds(0, 0, 1000, 600, this.gameScreenWidth, this.gameScreenHeight);
     //Backdrop
  //       this.my.sprite.blue = this.physics.add.sprite(400,320,"");
    //     this.my.sprite.blue.setGravityY(-300);
@@ -19,7 +19,7 @@ class Tomato extends Phaser.Scene {
       //  this.my.sprite.platform = this.physics.add.sprite(700,518,"platform");
        // this.my.sprite.platform2 = this.physics.add.sprite(700,518,"platwoform");
     //Dog
-       this.my.sprite.bishop = this.physics.add.sprite(55,650,"bishop");
+        this.my.sprite.bishop = this.physics.add.sprite(0,600,"bishop");
         this.my.sprite.bishop.setCollideWorldBounds(true);
         this.p1up = this.input.keyboard.addKey("W");
         this.p1down = this.input.keyboard.addKey("S");
@@ -50,49 +50,16 @@ class Tomato extends Phaser.Scene {
     }
 
     checkInput(){
-        if(this.p1down.isDown){
-            this.my.sprite.dog.body.y +=3
-            this.my.sprite.dog.setSize(32, 60);
-        }
-        else if(this.p1phase.isDown && this.my.sprite.dog.body.onFloor()){
-            this.my.sprite.dog.body.y +=20
-
-        }
-        else if(this.p1up.isDown && this.my.sprite.dog.body.onFloor()){
-            if (this.jumpBoost) {
-            this.my.sprite.dog.setVelocityY(-700);
-        }   else {
-            this.my.sprite.dog.setVelocityY(-500);
-        }
-    }
-        else if(this.p1ups.isDown && this.my.sprite.dog.body.onFloor()){
-            if (this.jumpBoost) {
-            this.my.sprite.dog.setVelocityY(-700);
-        }   else {
-            this.my.sprite.dog.setVelocityY(-500);
-        }
-    } 
-        else {
-            this.my.sprite.dog.setGravityY(800);
-            this.my.sprite.dog.setSize(32, 64);
-        }
-        
-        if(this.p1down.isDown && this.p1left.isDown){
-            this.my.sprite.dog.setVelocityX(-150);
-        }
-        else if(this.p1down.isDown && this.p1right.isDown){
-            this.my.sprite.dog.setVelocityX(160);
-        }
-        else if(this.p1right.isDown){
-            this.my.sprite.dog.setVelocityX(240);
+        if(this.p1right.isDown){
+            this.my.sprite.bishop.setVelocityX(230);
+            //Shifting Hitbox this.my.sprite.bishop.setSize(32, 60);
         }
         else if(this.p1left.isDown){ 
-            this.my.sprite.dog.setVelocityX(-240);
-        } else {
-            this.my.sprite.dog.setVelocityX(0);
+            this.my.sprite.bishop.setVelocityX(-230);
         }
-
-        this.jumpBoost = false;
+        else {
+            this.my.sprite.bishop.setVelocityX(0);
+    }
 }
   /*  brakey(key){
         key.setTexture("brokey");

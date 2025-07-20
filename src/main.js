@@ -14,13 +14,13 @@ let config = {
             debug: false,
             gravity: {
                 x: 0,
-                y: 0
+                y: 0,
             }
         }
     },
     width: 1000,
     height: 600,
-    scene: [Potato, Tomato]
+    scene: [CharSelect]
 }
 
 
