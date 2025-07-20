@@ -6,7 +6,8 @@ class Tomato extends Phaser.Scene {
 
     preload() {
         this.load.setPath("./assets/");
-        this.load.image("bishop","chess_bishop.png");
+        this.load.image("bishop","Adobe Express - file.png");
+        //this.load.image("bishop","chess_bishop.png");
     }
 
     create() {
@@ -19,7 +20,8 @@ class Tomato extends Phaser.Scene {
       //  this.my.sprite.platform = this.physics.add.sprite(700,518,"platform");
        // this.my.sprite.platform2 = this.physics.add.sprite(700,518,"platwoform");
     //Dog
-        this.my.sprite.bishop = this.physics.add.sprite(0,600,"bishop");
+        this.my.sprite.bishop = this.physics.add.sprite(400,300,"bishop");
+        this.my.sprite.bishop.setScale(0.2);
         this.my.sprite.bishop.setCollideWorldBounds(true);
         this.p1up = this.input.keyboard.addKey("W");
         this.p1down = this.input.keyboard.addKey("S");
