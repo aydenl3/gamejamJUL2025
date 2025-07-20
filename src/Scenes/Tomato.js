@@ -6,7 +6,7 @@ class Tomato extends Phaser.Scene {
 
     preload() {
         this.load.setPath("./assets/");
-        this.load.image("tomato","chess_bishop.png");
+        this.load.image("tomato","frontfacesize.png");
         this.load.image(" "," ");
     }
 
@@ -21,6 +21,7 @@ class Tomato extends Phaser.Scene {
        // this.my.sprite.platform2 = this.physics.add.sprite(700,518,"platwoform");
     //Tomato Character
         this.my.sprite.tomato = this.physics.add.sprite(100,550,"tomato");
+        //this.my.sprite.tomato.setScale(.2);
         this.my.sprite.tomato.setCollideWorldBounds(true);
         this.p1up = this.input.keyboard.addKey("W");
         this.p1down = this.input.keyboard.addKey("S");
