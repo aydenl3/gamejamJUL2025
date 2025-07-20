@@ -8,9 +8,9 @@ let config = {
         pixelArt: true  // prevent pixel art from getting blurred when scaled
     },
     fps: { forceSetTimeOut: true, target: 60 },   // ensure consistent timing across machines
-    width: 2000,
-    height: 1000,
-    scene: [Potato]
+    width: 1000,
+    height: 600,
+    scene: [Potato, Tomato]
 }
 
 
