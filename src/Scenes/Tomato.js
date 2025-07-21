@@ -11,8 +11,12 @@ class Tomato extends Phaser.Scene {
         this.load.image("leftwalk2","leftwalk2size.png");
         this.load.image("rightwalk1","rightwalk1size.png");
         this.load.image("rightwalk2","rightwalk2size.png");
-        this.load.image("idle1","idle1 size.png");
-        this.load.image("rightwalk2","rightwalk2size.png");
+        this.load.image("idle1","frontwalk1size.png");
+        this.load.image("idle2","frontfacesize.png");
+        this.load.image("upwalk1","backwalk1size.png");
+        this.load.image("upwalk2","backwalk2size.png");
+        this.load.image("downwalk1","frontwalk1size.png");
+        this.load.image("downwalk2","frontwalk2size.png");
     }
 
     create() {
@@ -71,6 +75,26 @@ class Tomato extends Phaser.Scene {
             hideOnComplete: false
         });
         this.anims.create({
+            key: "walkUp",
+            frames: [
+                { key: "upwalk1" },
+                { key: "upwalk2" }
+            ],
+            frameRate: 6,
+            repeat: -1,
+            hideOnComplete: false
+        });
+        this.anims.create({
+            key: "walkDown",
+            frames: [
+                { key: "downwalk1" },
+                { key: "downwalk2" }
+            ],
+            frameRate: 6,
+            repeat: -1,
+            hideOnComplete: false
+        });
+        this.anims.create({
             key: "idle",
             frames: [
                 { key: "idle1" },
@@ -87,35 +111,59 @@ class Tomato extends Phaser.Scene {
     }
 
     checkInput(){
-        if(this.p1left.isDown && this.p1right.isDown){
-            this.my.sprite.tomato.setVelocityX(0);
-        }
-        else if(this.p1left.isDown){ 
+        //LEFT
+        if(this.p1left.isDown && !this.p1right.isDown && !this.p1up.isDown && !this.p1down.isDown){
             this.my.sprite.tomato.setVelocityX(-200);
+            this.my.sprite.tomato.setVelocityY(0);
             this.my.sprite.tomato.play('walkLeft',true);
         }
-        else if(this.p1right.isDown){
+        //RIGHT
+        else if(!this.p1left.isDown && this.p1right.isDown && !this.p1up.isDown && !this.p1down.isDown){
             this.my.sprite.tomato.setVelocityX(200);
+            this.my.sprite.tomato.setVelocityY(0);
+            this.my.sprite.tomato.play('walkRight',true);
+        }
+        //UP
+        else if(!this.p1left.isDown && !this.p1right.isDown && this.p1up.isDown && !this.p1down.isDown){
+            this.my.sprite.tomato.setVelocityY(-200);
+            this.my.sprite.tomato.setVelocityX(0);
+            this.my.sprite.tomato.play('walkUp',true);
+        }
+        //DOWN
+        else if(!this.p1left.isDown && !this.p1right.isDown && !this.p1up.isDown && this.p1down.isDown){
+            this.my.sprite.tomato.setVelocityY(200);
+            this.my.sprite.tomato.setVelocityX(0);
+            this.my.sprite.tomato.play('walkDown',true);
+        }
+        //LEFT UP
+        else if(this.p1left.isDown && !this.p1right.isDown && this.p1up.isDown && !this.p1down.isDown){
+            this.my.sprite.tomato.setVelocityX(-180);
+            this.my.sprite.tomato.setVelocityY(-180);
+            this.my.sprite.tomato.play('walkLeft',true);
+        }
+        //RIGHT UP
+        else if(!this.p1left.isDown && this.p1right.isDown && this.p1up.isDown && !this.p1down.isDown){
+            this.my.sprite.tomato.setVelocityX(180);
+            this.my.sprite.tomato.setVelocityY(-180);
+            this.my.sprite.tomato.play('walkRight',true);
+        }
+        //LEFT DOWN
+        else if(this.p1left.isDown && !this.p1right.isDown && !this.p1up.isDown && this.p1down.isDown){
+            this.my.sprite.tomato.setVelocityX(-180);
+            this.my.sprite.tomato.setVelocityY(180);
+            this.my.sprite.tomato.play('walkLeft',true);
+        }
+        //RIGHT DOWN
+        else if(!this.p1left.isDown && this.p1right.isDown && !this.p1up.isDown && this.p1down.isDown){
+            this.my.sprite.tomato.setVelocityX(180);
+            this.my.sprite.tomato.setVelocityY(180);
             this.my.sprite.tomato.play('walkRight',true);
         }
         else{
             this.my.sprite.tomato.setVelocityX(0);
-            this.my.sprite.tomato.play('idle',true);
-        }
-        
-        if (this.p1up.isDown && this.p1down.isDown){
-            this.my.sprite.tomato.setVelocityY(0);
-        }
-        else if(this.p1up.isDown){
-            this.my.sprite.tomato.setVelocityY(-200);
-        }
-        else if(this.p1down.isDown){ 
-            this.my.sprite.tomato.setVelocityY(200);
-        }
-        else {
             this.my.sprite.tomato.setVelocityY(0);
             this.my.sprite.tomato.play('idle',true);
-    }
+        }
 }
   /*  brakey(key){
         key.setTexture("brokey");
