@@ -4,10 +4,12 @@ class Potato extends Phaser.Scene {
         this.my = {sprite: {}};
     }
 
+
     preload() {
         this.load.setPath("./assets/");
         this.load.image("potato","chess_knight.png");
     }
+
 
     create() {
         this.my.sprite.potato = this.physics.add.sprite(100,550,"potato");
@@ -20,13 +22,25 @@ class Potato extends Phaser.Scene {
         this.space = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
         this.shift = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SHIFT);
 
+
+       
+       
+
+
     }
+
 
     update() {
-        this.checkInput(); 
+        this.checkInput();
     }
 
+
     checkInput(){
+        if (Phaser.Input.Keyboard.JustDown(this.space)) {
+            this.Leap();
+        }
+
+
         if(this.right.isDown && this.left.isDown){
             this.my.sprite.potato.setVelocityX(0);
         }
@@ -36,7 +50,7 @@ class Potato extends Phaser.Scene {
         else if(this.right.isDown){
             this.my.sprite.potato.setVelocityX(200);
         }
-        else if(this.left.isDown){ 
+        else if(this.left.isDown){
             this.my.sprite.potato.setVelocityX(-200);
         }
         else {
@@ -45,11 +59,18 @@ class Potato extends Phaser.Scene {
         if(this.up.isDown){
             this.my.sprite.potato.setVelocityY(-200);
         }
-        else if(this.down.isDown){ 
+        else if(this.down.isDown){
             this.my.sprite.potato.setVelocityY(200);
         }
         else {
             this.my.sprite.potato.setVelocityY(0);
         }  
     }
+
+
+    Leap(){
+
+
+    }
 }
+
