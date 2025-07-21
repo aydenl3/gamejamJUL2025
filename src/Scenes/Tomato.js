@@ -7,7 +7,12 @@ class Tomato extends Phaser.Scene {
     preload() {
         this.load.setPath("./assets/");
         this.load.image("tomato","frontfacesize.png");
-        this.load.image(" "," ");
+        this.load.image("leftwalk1","leftwalk1 size.png");
+        this.load.image("leftwalk2","leftwalk2 size.png");
+        this.load.image("rightwalk1","rightwalk1 size.png");
+        this.load.image("rightwalk2","rightwalk2 size.png");
+        this.load.image("idle1","idle1 size.png");
+        this.load.image("rightwalk2","rightwalk2 size.png");
     }
 
     create() {
@@ -43,6 +48,38 @@ class Tomato extends Phaser.Scene {
         this.jumpBoost = true;
         });
         this.physics.add.collider(this.my.sprite.key, this.my.sprite.chest, this.unlock, null, this) */
+
+
+        this.anims.create({
+            key: "walkLeft",
+            frames: [
+                { key: "leftwalk1" },
+                { key: "leftwalk2" }
+            ],
+            frameRate: 6,
+            repeat: -1,
+            hideOnComplete: false
+        });
+        this.anims.create({
+            key: "walkRight",
+            frames: [
+                { key: "rightwalk1" },
+                { key: "rightwalk2" }
+            ],
+            frameRate: 6,
+            repeat: -1,
+            hideOnComplete: false
+        });
+        this.anims.create({
+            key: "idle",
+            frames: [
+                { key: "idle1" },
+                { key: "idle2" }
+            ],
+            frameRate: 6,
+            repeat: -1,
+            hideOnComplete: false
+        });
     }
 
     update() {
@@ -55,11 +92,15 @@ class Tomato extends Phaser.Scene {
         }
         else if(this.p1left.isDown){ 
             this.my.sprite.tomato.setVelocityX(-200);
+            this.my.sprite.tomato.play('walkLeft',true);
         }
         else if(this.p1right.isDown){
             this.my.sprite.tomato.setVelocityX(200);
-        }else{
+            this.my.sprite.tomato.play('walkRight',true);
+        }
+        else{
             this.my.sprite.tomato.setVelocityX(0);
+            this.my.sprite.tomato.play('idle',true);
         }
         
         if (this.p1up.isDown && this.p1down.isDown){
@@ -73,6 +114,7 @@ class Tomato extends Phaser.Scene {
         }
         else {
             this.my.sprite.tomato.setVelocityY(0);
+            this.my.sprite.tomato.play('idle',true);
     }
 }
   /*  brakey(key){
