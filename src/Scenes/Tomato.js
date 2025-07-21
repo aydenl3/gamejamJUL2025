@@ -7,12 +7,12 @@ class Tomato extends Phaser.Scene {
     preload() {
         this.load.setPath("./assets/");
         this.load.image("tomato","frontfacesize.png");
-        this.load.image("leftwalk1","leftwalk1 size.png");
-        this.load.image("leftwalk2","leftwalk2 size.png");
-        this.load.image("rightwalk1","rightwalk1 size.png");
-        this.load.image("rightwalk2","rightwalk2 size.png");
+        this.load.image("leftwalk1","leftwalk1size.png");
+        this.load.image("leftwalk2","leftwalk2size.png");
+        this.load.image("rightwalk1","rightwalk1size.png");
+        this.load.image("rightwalk2","rightwalk2size.png");
         this.load.image("idle1","idle1 size.png");
-        this.load.image("rightwalk2","rightwalk2 size.png");
+        this.load.image("rightwalk2","rightwalk2size.png");
     }
 
     create() {
